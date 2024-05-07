@@ -11,12 +11,12 @@ class Galaxy:
         with open(path, 'r') as file:
             for line in file:
                 x, y = line.split(',')
-                new_star = self.add_star(int(x), int(y))
-                self.stars[new_star.id] = new_star
-
+                self.add_star(int(x), int(y))
+                
     def add_star(self, x: int, y: int):
-        return Star(len(self.stars), int(x), int(y))
-    
+        new_star = Star(len(self.stars), int(x), int(y))
+        self.stars[new_star.id] = new_star
+
     def get_star(self, id_: id):
         # Returns None if star not found.
         return self.stars.get(id_)
